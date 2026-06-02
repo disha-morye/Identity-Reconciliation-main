@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity,Long>{
@@ -15,9 +16,11 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity,Long>{
 //            "   OR (:phone IS NOT NULL AND c.phoneNumber = :phone)")
 //    List<CustomerEntity> getMatchingContacts(@Param("email") String email, @Param("phone") String phoneNumber);
 
-    List<CustomerEntity> findByEmail(String email);
+    Optional<CustomerEntity> findFirstByEmail(String email);
 
-    List<CustomerEntity> findByPhoneNumber(String phoneNumber);
+    Optional<CustomerEntity> findFirstByPhoneNumber(String phoneNumber);
+
+    Optional<CustomerEntity> findFirstByPhoneNumberAndEmail(String phoneNumber, String email);
 
     List<CustomerEntity> findByLinkedId(Long linkedId);
 }
