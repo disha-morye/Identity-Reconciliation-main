@@ -1,13 +1,18 @@
 package com.example.Identity.Reconciliation.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+// Table schema for customer entity
 @Entity
 @Table(name = "Contact")
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
 public class CustomerEntity{
 
     @Id

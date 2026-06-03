@@ -1,4 +1,5 @@
 package com.example.Identity.Reconciliation.DTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,15 +9,15 @@ import java.util.List;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class CustomerResponseDTO {
     private Contact contact;
 
     @Setter
     @Getter
-    @AllArgsConstructor
     @NoArgsConstructor
+    @AllArgsConstructor
     public static class Contact {
         private Long primaryContatctId;
         private List<String> emails;
