@@ -28,12 +28,14 @@ cd identity-reconciliation
 Update `src/main/resources/application.properties` as needed:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/customer
+
 spring.datasource.username=root
+
 spring.datasource.password=
 
 text
 
-> **Note:** Spring Boot will use environment variables (`SPRING_DATASOURCE_*`) if present, overriding the above values.[2]
+> **Note:** Spring Boot will use environment variables (`SPRING_DATASOURCE_*, DB_*`) if present, overriding the above values.
 
 ---
 
@@ -52,14 +54,20 @@ text
 
 ### Reconcile or Create a Customer Contact
 
-**Endpoint**: `POST /identity`
+**Endpoint**: `POST /identify`
 
+**URL**: `https://identity-reconciliation-iz14.onrender.com/api/identify`
+
+text
+
+> **Note:** The service will take some time on first HTTP request because it is deployed on Render and it may take some time to come online. Please wait..
+>
 ## Usage Examples
 
 ### Using cURL
 **Basic request**:
 ```bash
-curl -X POST "https://" \
+curl -X POST "https://identity-reconciliation-iz14.onrender.com/api/identify" \
    -H "Content-Type: application/json" \
    -d '{
     "phoneNumber": "8769972003", 
@@ -133,7 +141,6 @@ Response:
     "phoneNumber": "9869489376",
     "email": "skumar78@gmail.com"
   }'
-
 
 Response:
 {
